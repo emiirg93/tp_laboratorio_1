@@ -9,7 +9,7 @@
  * \return la opcion elegida.
  *
  */
-int menu(int a,int b);
+void menu();
 /** \brief permite ingresar un numero por el usuario.
  *
  * \param orden a realizar.
