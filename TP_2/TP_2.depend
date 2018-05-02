@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1524800649 source:c:\users\emiliano rago\desktop\emilianofunciones\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1524802498 source:c:\users\emiliano rago\desktop\emilianofunciones\funcionesemiliano.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1525226258 source:c:\users\emiliano rago\desktop\tp_2\funcionesemiliano.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"FuncionesEmiliano.h"
+
+1525226198 source:c:\users\emiliano rago\desktop\tp_2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"FuncionesEmiliano.h"
+
+1525226235 c:\users\emiliano rago\desktop\tp_2\funcionesemiliano.h
+
