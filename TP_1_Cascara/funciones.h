@@ -9,13 +9,21 @@
  * \return la opcion elegida.
  *
  */
-void menu();
+int menuPrincipal(int numeroA,int numeroB);
+/** \brief Valida si el usuario ingresa una o mas letras.
+ *
+ * \param Lo que ingresa el usuario.
+ * \return 0 si no encuentra una letra 1 si encuentra.
+ *
+ */
+int validarLetra(char opcion[]);
 /** \brief permite ingresar un numero por el usuario.
  *
  * \param orden a realizar.
  * \return el numero ingresado.
  *
  */
+
 int ingresarNumero (char texto[]);
 /** \brief permite ingresar un nuevo numero.
  *
@@ -38,7 +46,7 @@ void funSumar(int a,int b);
  * \param segundo numero a restar.
  *
  */
-void restar(int a,int b);
+void funRestar(int a,int b);
 /** \brief permite dividir dos numeros
  *
  * \param dividendo.

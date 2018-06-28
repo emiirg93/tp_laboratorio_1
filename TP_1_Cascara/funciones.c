@@ -1,116 +1,56 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
+#include <string.h>
+#include <ctype.h>
+#include "funciones.h"
 
-void menu()
+int menuPrincipal(int numeroA,int numeroB)
 {
-    char opcion;
-    int numeroA=0,numeroB=0;
-    int salir=0;
+    char opcion[10];
+    int datoInt;
 
-    do
+    system("cls");
+
+    printf("1- Ingresar 1er operando (A=%d)\n",numeroA);
+    printf("2- Ingresar 2do operando (B=%d)\n",numeroB);
+    printf("3- Calcular la suma (%d+%d)\n",numeroA,numeroB);
+    printf("4- Calcular la resta (%d-%d)\n",numeroA,numeroB);
+    printf("5- Calcular la division (%d/%d)\n",numeroA,numeroB);
+    printf("6- Calcular la multiplicacion (%d*%d)\n",numeroA,numeroB);
+    printf("7- Calcular el factorial (%d!)\n",numeroA);
+    printf("8- Calcular todas las operaciones.\n");
+    printf("9- Salir\n\nIngrese una opcion : ");
+
+    scanf("%s",opcion);
+
+    while (validarLetra(opcion)== 1)
     {
+        printf("Usted no puede ingresar un caracter!\nIngrese un numero ente 1 y 9 :");
+        scanf("%s",opcion);
+    }
 
-        system("cls");
+    datoInt = atoi(opcion);
 
-        printf("1- Ingresar 1er operando (A=%d)\n",numeroA);
-        printf("2- Ingresar 2do operando (B=%d)\n",numeroB);
-        printf("3- Calcular la suma (%d+%d)\n",numeroA,numeroB);
-        printf("4- Calcular la resta (%d-%d)\n",numeroA,numeroB);
-        printf("5- Calcular la division (%d/%d)\n",numeroA,numeroB);
-        printf("6- Calcular la multiplicacion (%d*%d)\n",numeroA,numeroB);
-        printf("7- Calcular el factorial (%d!)\n",numeroA);
-        printf("8- Calcular todas las operaciones.\n");
-        printf("9- Salir\n\nIngrese una opcion : ");
+    return datoInt;
+}
 
-        scanf("%s",&opcion);
+int validarLetra(char opcion[])
+{
+    int flag = 0,cant,i;
 
-        switch(opcion)
+    cant = strlen(opcion);
+
+    for(i=0; i<cant; i++)
+    {
+        if(!isdigit(opcion[i]))
         {
-
-        case '1':
-
-            numeroA=ingresarNumero("Ingrese el primer numero : ");
-            if(numeroA == 0)
-            {
-                numeroB=funIngresarNuevo(numeroB,"Usted ha ingresado el numero 0.\nTenga en cuenta que si deja este numero no podra realizar la operacion 8(factorial).\n\n");
-            }
-            break;
-
-        case '2':
-
-            numeroB=ingresarNumero("Ingrese el segundo numero : ");
-            if(numeroB == 0)
-            {
-                numeroB=funIngresarNuevo(numeroB,"Usted ha ingresado el numero 0.\nTenga en cuenta que si deja este numero no podra realizar la operacion 5(division).\n\n");
-            }
-            break;
-
-        case '3':
-
-            funSumar(numeroA,numeroB);
-            getch();
-            break;
-
-        case '4':
-
-            funRestar(numeroA,numeroB);
-            getch();
-            break;
-
-        case '5':
-
-            if(numeroB != 0)
-            {
-                funDividir(numeroA,numeroB);
-            }
-            else
-            {
-                printf("No se puede realizar esta operacion.");
-            }
-
-            getch();
-            break;
-
-        case '6':
-
-            funMultiplicacion(numeroA,numeroB);
-            getch();
-            break;
-
-        case '7':
-
-            if(numeroA != 0)
-            {
-                funFactorial(numeroA);
-            }
-            else
-            {
-                printf("No se puede realizar esta operacion.");
-            }
-
-            getch();
-            break;
-
-        case '8':
-
-            todasLasOperaciones(numeroA,numeroB);
-            getch();
-            break;
-        case '9':
-
-            salir = 1;
-            break;
-
-
-        default:
-            printf("Ingreso una opcion incorrecta.");
-            getch();
+            flag = 1;
             break;
         }
-
     }
-    while(salir != 1);
 
+    return flag;
 }
 
 int ingresarNumero (char texto[])
